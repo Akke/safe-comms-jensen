@@ -2,7 +2,7 @@ const User = require("../models/userModel")
 const Invite = require("../models/inviteModel")
 
 const getUser = async ( req, res ) => {
-    const { userId } = req.body
+    const { userId } = req.params
 
     try {
         const user = await User.findById(userId)
