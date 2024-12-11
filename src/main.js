@@ -13,9 +13,11 @@ app.use(express.json())
 
 const userRoutes = require("./routes/userRoutes")
 const inviteRoutes = require("./routes/inviteRoutes")
+const conversationRoutes = require("./routes/conversationRoutes")
 
 app.use("/users", userRoutes)
 app.use("/invite", inviteRoutes)
+app.use("/conversations", conversationRoutes)
 
 app.listen(PORT, () => {
 	console.log(`App running and listening on port ${PORT}`)
