@@ -1,8 +1,9 @@
 const mongoose = require("mongoose")
 
 const inviteSchema = {
-	sender: { type: mongoose.Schema.Types.ObjectId },
-	recipient: { type: mongoose.Schema.Types.ObjectId }
+	senderId: { type: mongoose.Schema.Types.ObjectId },
+	recipientId: { type: mongoose.Schema.Types.ObjectId },
+	conversationId: { type: mongoose.Schema.Types.ObjectId }
 }
 
 module.exports = inviteSchema
