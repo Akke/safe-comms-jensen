@@ -1,3 +1,11 @@
 const User = require("../models/userModel")
 
-module.exports = {}
+const inviteUser = async (req, res) => {
+	const { userId } = req.body
+
+
+}
+
+module.exports = {
+	inviteUser
+}
