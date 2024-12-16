@@ -34,8 +34,28 @@ const inviteUser = async (req, res) => {
 	}	
 }
 
+const updateUser = async (req, res) => {
+    const { userId } = req.params
+    const { username } = req.body
+
+    try {
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { username },
+            { new: true }
+        )
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found' })
+        }
+        res.status(200).json(updatedUser)
+    } catch (error) {
+        res.status(500).send('Server error')
+    }
+}
+
 module.exports = {
-  getUser,
-	inviteUser
+    getUser,
+    inviteUser,
+    updateUser
 }
 
