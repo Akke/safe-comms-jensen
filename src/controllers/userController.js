@@ -34,8 +34,24 @@ const inviteUser = async (req, res) => {
 	}	
 }
 
+const postUser = async (req, res) => {
+	const { senderId, recipientId, message } = req.body
+
+	try {
+		const newUser = new User({ senderId: senderId, recipientId: recipientId, message: message })
+
+		const saveUser = newUser.save()
+
+		res.status(201).json(saveUser)
+	} catch (error) {
+		console.log(error)
+		res.status(500).send("Server Error")
+	}
+}
+
 module.exports = {
  	getUser,
-	inviteUser
+	inviteUser,
+	postUser
 }
 
