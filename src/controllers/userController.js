@@ -35,7 +35,7 @@ const inviteUser = async (req, res) => {
 }
 
 module.exports = {
-  getUser,
+ 	getUser,
 	inviteUser
 }
 
