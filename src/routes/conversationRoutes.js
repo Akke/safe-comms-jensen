@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Conversation = require('..models/conversationModel');
 
-router.get('/Conversations', async (req, res) => {
+router.get('/conversations', async (req, res) => {
     try{
         const conversations = await Conversation.find();
         res.json(conversations);
@@ -11,7 +11,7 @@ router.get('/Conversations', async (req, res) => {
     }
 });
 
-router.post('/Conversations', async (req, res) => {
+router.post('/conversations', async (req, res) => {
     try {
         const { title, participants } = req.body;
         const newConversation = new Conversation({ title, participants });
