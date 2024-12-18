@@ -15,3 +15,5 @@ POST /invite/{userId} - Axel
 GET /conversations - Hampus
 
 GET /messages - Ilya
+
+POST /messages - Axel
