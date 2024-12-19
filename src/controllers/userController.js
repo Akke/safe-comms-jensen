@@ -1,6 +1,16 @@
 const User = require("../models/userModel")
 const Invite = require("../models/inviteModel")
 
+const getAllUsers = async (req, res) => {
+	try {
+		const users = await User.find();
+		res.status(200).json(users)
+	}	catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server error');
+	}
+};
+
 const getUser = async ( req, res ) => {
     const { userId } = req.params
 
@@ -34,6 +44,7 @@ const inviteUser = async (req, res) => {
 	}	
 }
 
+<<<<<<< HEAD
 const updateUser = async (req, res) => {
     const { userId } = req.params
     const { username } = req.body
@@ -57,5 +68,10 @@ module.exports = {
     getUser,
     inviteUser,
     updateUser
+=======
+module.exports = {
+ 	getUser,
+	inviteUser
+>>>>>>> d115c0c0930153ce0216ef7b3b605271f76319d7
 }
 
