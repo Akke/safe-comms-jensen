@@ -12,6 +12,8 @@ UserSchema.pre("save", async (next) => {
 	const saltRounds = 10
 
 	this.password = await bcrypt.hash(this.password, saltRounds)
+
+	next()
 })
 
 module.exports = mongoose.model("User", UserSchema)
