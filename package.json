@@ -1,7 +1,7 @@
 {
   "name": "safe-comms-jensen",
   "version": "1.0.0",
-  "description": "GET /users - Malin",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.8.4"
+    "mongoose": "^8.8.4",
+    "nodemon": "^3.1.7"
   }
 }
