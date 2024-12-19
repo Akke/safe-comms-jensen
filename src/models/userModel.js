@@ -5,7 +5,7 @@ const schema = require("../schemas/userSchema.js")
 
 const UserSchema = new mongoose.Schema(schema, { timestamps: true})
 
-UserSchema.pre("save", async (next) => {
+UserSchema.pre("save", async function(next) {
 	if(!this.isModified)
 		return next()
 
