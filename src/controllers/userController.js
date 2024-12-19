@@ -1,6 +1,16 @@
 const User = require("../models/userModel")
 const Invite = require("../models/inviteModel")
 
+const getAllUsers = async (req, res) => {
+	try {
+		const users = await User.find();
+		res.status(200).json(users)
+	}	catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server error');
+	}
+};
+
 const getUser = async ( req, res ) => {
     const { userId } = req.params
 
@@ -34,8 +44,28 @@ const inviteUser = async (req, res) => {
 	}	
 }
 
+const updateUser = async (req, res) => {
+    const { userId } = req.params
+    const { username } = req.body
+
+    try {
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { username },
+            { new: true }
+        )
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found' })
+        }
+        res.status(200).json(updatedUser)
+    } catch (error) {
+        res.status(500).send('Server error')
+    }
+}
+
 module.exports = {
- 	getUser,
-	inviteUser
+    getUser,
+    inviteUser,
+    updateUser
 }
 
