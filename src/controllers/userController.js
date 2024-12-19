@@ -69,7 +69,7 @@ const createUser = async (req, res) => {
 	try {
 		const findUser = await User.findOne({ username: username })
 		if(findUser) {
-			res.status(409).json({ error: "Username already exists." })
+			return res.status(409).json({ error: "Username already exists." })
 		}
 
 		const newUser = new User({ username, password })
