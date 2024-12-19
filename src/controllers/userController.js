@@ -44,7 +44,6 @@ const inviteUser = async (req, res) => {
 	}	
 }
 
-<<<<<<< HEAD
 const updateUser = async (req, res) => {
     const { userId } = req.params
     const { username } = req.body
@@ -68,10 +67,5 @@ module.exports = {
     getUser,
     inviteUser,
     updateUser
-=======
-module.exports = {
- 	getUser,
-	inviteUser
->>>>>>> d115c0c0930153ce0216ef7b3b605271f76319d7
 }
 
