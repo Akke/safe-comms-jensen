@@ -63,9 +63,31 @@ const updateUser = async (req, res) => {
     }
 }
 
+const createUser = async (req, res) => {
+	const { username, password } = req.body
+
+	try {
+		const findUser = await User.findOne({ username: username })
+		if(findUser) {
+			return res.status(409).json({ error: "Username already exists." })
+		}
+
+		const newUser = new User({ username, password })
+
+		const saveUser = await newUser.save()
+
+		res.status(201).json(saveUser)
+	} catch (error) {
+		console.log(error)
+		res.status(500).json({ error: "Server Error" })
+	}
+}
+
 module.exports = {
-    getUser,
-    inviteUser,
-    updateUser
+	getUser,
+	inviteUser,
+	updateUser,
+	createUser,
+	getAllUsers
 }
 

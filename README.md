@@ -17,3 +17,6 @@ GET /conversations - Hampus
 GET /messages - Ilya
 
 POST /messages - Axel
+
+# Auth Endpoint
+POST /auth/register - Axel
