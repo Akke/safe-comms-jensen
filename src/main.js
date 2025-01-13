@@ -5,7 +5,7 @@ const { connectDb } = require("./config/db")
 
 const app = express()
 
-const PORT = process.env.APP_PORT || 3001
+const PORT = process.env.APP_PORT || 3000
 
 connectDb()
 

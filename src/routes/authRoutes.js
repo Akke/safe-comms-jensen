@@ -1,15 +1,7 @@
-const express = require("express")
-const router = express.Router()
-const { createUser } = require("../controllers/userController.js")
-const jwt = require('jsonwebtoken');
+const express = require("express");
+const router = express.Router();
+const { login } = require('../controllers/authController');
 
-const verifyToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(403).json({ message: 'Access denied!' });
-    }
-}
+router.post("/login", login);
 
-router.use("/register", createUser)
-
-module.exports = router
+module.exports = router;
