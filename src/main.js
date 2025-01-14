@@ -16,12 +16,14 @@ const inviteRoutes = require("./routes/inviteRoutes")
 const conversationRoutes = require("./routes/conversationRoutes")
 const messagesRoutes = require("./routes/messagesRoutes")
 const authRoutes = require("./routes/authRoutes")
+const envRoutes = require("./routes/envRoutes")
 
 app.use("/users", userRoutes)
 app.use("/invite", inviteRoutes)
 app.use("/conversations", conversationRoutes)
 app.use("/messages", messagesRoutes)
 app.use("/auth", authRoutes)
+app.use("/env", envRoutes)
 
 app.listen(PORT, () => {
 	console.log(`App running and listening on port ${PORT}`)
