@@ -15,7 +15,7 @@ const postMessage = async (req, res) => {
 	try {
 		const newMessage = new Message({ recipientId, senderId, message })
 
-		const saveMessage = newMessage.save()
+		const saveMessage = await newMessage.save()
 
 		res.status(201).json(saveMessage)
 	} catch (error) {
