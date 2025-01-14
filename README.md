@@ -22,3 +22,6 @@ Delete /messages- Fehed
 
 # Auth Endpoint
 POST /auth/register - Axel
+
+# Övriga Endpoint
+GET /env - Axel
