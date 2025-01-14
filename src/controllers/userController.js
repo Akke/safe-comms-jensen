@@ -48,7 +48,7 @@ const updateUser = async (req, res) => {
     const { userId } = req.params
     const { username } = req.body
 
-		if (req.user.id !== userID) {
+		if (req.user.id !== userId) {
 			return res.status(403).json({ message: 'You are not allowed to update this user.'})
 		}
 
