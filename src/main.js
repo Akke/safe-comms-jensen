@@ -3,6 +3,8 @@ require("dotenv").config()
 
 const { connectDb } = require("./config/db")
 
+const helmet = require("helmet")
+
 const app = express()
 
 const PORT = process.env.APP_PORT || 3000
@@ -10,6 +12,20 @@ const PORT = process.env.APP_PORT || 3000
 connectDb()
 
 app.use(express.json())
+app.use(
+	helmet({
+		contentSecurityPolicy: {
+			useDefaults: true,
+			directives: {
+				"default-src": ["'self'"],
+				"script-src": ["'self'", "http://localhost:3000"],
+				"style-src": ["'self'", "'unsafe-inline'"],
+				"img-src": ["'self'", "data:", "http://localhost:3000"],
+			},
+		},
+		xContentTypeOptions: true
+	})
+)
 
 const userRoutes = require("./routes/userRoutes")
 const inviteRoutes = require("./routes/inviteRoutes")
