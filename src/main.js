@@ -5,6 +5,8 @@ const { connectDb } = require("./config/db")
 
 const helmet = require("helmet")
 
+const cookieParser = require("cookie-parser");
+
 const app = express()
 
 const PORT = process.env.APP_PORT || 3000
@@ -12,6 +14,7 @@ const PORT = process.env.APP_PORT || 3000
 connectDb()
 
 app.use(express.json())
+app.use(cookieParser());
 app.use(
 	helmet({
 		contentSecurityPolicy: {
