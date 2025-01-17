@@ -17,3 +17,11 @@ GET /conversations - Hampus
 GET /messages - Ilya
 
 POST /messages - Axel
+
+Delete /messages- Fehed
+
+# Auth Endpoint
+POST /auth/register - Axel
+
+# Övriga Endpoint
+GET /env - Axel
