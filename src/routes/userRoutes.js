@@ -5,6 +5,6 @@ const { requireAuth } = require('../middleware/authMiddleware')
 
 router.get('/:userId', getUser)
 router.put('/:userId', requireAuth, updateUser)
-router.get('/', getAllUsers)
+router.get('/', requireAuth, getAllUsers);
 
 module.exports = router

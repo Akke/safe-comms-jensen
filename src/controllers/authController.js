@@ -12,7 +12,7 @@ const login = async (req, res) => {
         }
 
         const checkPassword = await bcrypt.compare(password, findUser.password) 
-        if (!findUser.password) {
+        if (!checkPassword) {
             return res.status(401).json({ message: 'Ogiltigt lösenord' })
         }
 
