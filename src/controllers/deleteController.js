@@ -12,4 +12,4 @@ exports.deleteUser = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error deleting user', error: error.message });
     }
-};
+}; 
