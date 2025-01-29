@@ -7,4 +7,4 @@ const {
 
 router.delete("/:text_id" , deleteuser) ;
 
-module.exports =  express.Router
+module.exports =  router ;  
